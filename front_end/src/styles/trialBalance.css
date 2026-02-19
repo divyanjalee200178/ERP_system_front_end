@@ -1,0 +1,210 @@
+/* Container & table styling */
+.table-section {
+    margin-top: 1rem;
+    padding: 1rem;
+}
+
+.table-section table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    color: #000; /* text color black */
+    font-family: Arial, sans-serif;
+}
+
+.table-section th,
+.table-section td {
+    border: 1px solid #ddd;
+    padding: 0.8rem;
+    text-align: left;
+    color: #000; /* text color black */
+}
+
+.table-section th {
+    background-color: #1976d2; /* header background */
+    color: #000; /* header text black */
+    font-weight: 600;
+}
+
+.table-section tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table-section tbody tr:hover {
+    background-color: #e3f2fd;
+}
+
+/* Page Header & Navigation */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.page-nav .nav-link {
+    text-decoration: none;
+    color: #1976d2;
+    font-weight: bold;
+    padding: 0.3rem 0.6rem;
+    border: 1px solid #1976d2;
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.page-nav .nav-link:hover {
+    background-color: #1976d2;
+    color: #fff;
+}
+
+/* Card styling */
+.card {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Trial Balance Page Styles */
+.page-navbar {
+    background-color: #1e3a8a; /* deep blue */
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.page-navbar h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+/* Table specific overrides */
+.table-section th {
+    background-color: #f0f0f0;
+    color: #000; /* header text black */
+}
+
+.table-section tr {
+    color: #000; /* row text black */
+}
+
+.table-section tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+.table-section tr:hover {
+    background-color: #e0e7ff;
+}
+
+
+/* ===== Layout ===== */
+.dashboard {
+    display: flex;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #f9fafc;
+}
+
+/* ===== Header Navigation ===== */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.page-header h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.page-nav {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-link {
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: 500;
+    color: #007bff;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.nav-link.active {
+    background-color: #007bff;
+    color: white;
+}
+
+/* ===== Card ===== */
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== Table ===== */
+.trial-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.trial-table th,
+.trial-table td {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+}
+
+.trial-table th {
+    background-color: #f4f6f9;
+    font-weight: 600;
+}
+
+.trial-table tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* ===== Amount Colors ===== */
+.debit {
+    color: #28a745;
+    font-weight: 500;
+}
+
+.credit {
+    color: #dc3545;
+    font-weight: 500;
+}
+
+.net {
+    font-weight: 600;
+}
+
+/* ===== Total Row ===== */
+.total-row {
+    font-weight: bold;
+    background-color: #f0f0f0;
+}
+
+/* ===== No Data ===== */
+.no-data {
+    text-align: center;
+    padding: 15px;
+    color: #888;
+}

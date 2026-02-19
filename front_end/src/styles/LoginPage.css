@@ -1,0 +1,78 @@
+/* Apply full-page gradient background and center content */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* ✅ Full-page hotel-themed background image */
+    background: url('https://i.pinimg.com/736x/5b/f6/42/5bf642409d2b8077ae4b1c93b25a0b48.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Target the outer div wrapping your form */
+.login-container, /* fallback if class exists */
+div[style*="max-width: 400px"][style*="margin:"] {
+    max-width: 400px;
+    width: 100%;
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    /* ✅ Semi-transparent white card so text is readable */
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+/* Headline styling */
+.login-container h2,
+div[style*="max-width: 400px"][style*="margin:"] h2 {
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    color: #333;
+}
+
+/* Input styling */
+.login-container input,
+div[style*="max-width: 400px"][style*="margin:"] input {
+    width: 100%;
+    padding: 0.85rem;
+    margin-bottom: 1.25rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    color: black; /* ✅ Make input text black */
+    transition: border 0.3s;
+}
+
+.login-container input:focus,
+div[style*="max-width: 400px"][style*="margin:"] input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Button styling */
+.login-container button,
+div[style*="max-width: 400px"][style*="margin:"] button {
+    width: 100%;
+    padding: 0.9rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.login-container button:hover:not(:disabled),
+div[style*="max-width: 400px"][style*="margin:"] button:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+
+.login-container button:disabled,
+div[style*="max-width: 400px"][style*="margin:"] button:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+}
