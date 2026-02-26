@@ -6,6 +6,13 @@ import JournalEntryPage from "./pages/JournalEntryPage";
 import TrialBalance from "./pages/TrialBalance";
 import LoginPage from "./pages/LoginPage";
 import LedgerDetails from "./pages/LedgerDetails";
+import InvoicePage from "./pages/InvoicePage.tsx";
+import SupplierPage from "./pages/SupplierPage";
+import AccountsPayable from "./pages/AccountsPayable.tsx";
+import AccountsReceivable from "./pages/AccountsReceivable.tsx";
+import FixedAssetPage from "./pages/FixedAssetPage.tsx";
+import DepreciationSchedulePage from "./pages/DepreciationSchedulePage.tsx";
+import AssetDisposalsPage from "./pages/AssetDisposalsPage.tsx";
 
 const App: React.FC = () => {
     return (
@@ -19,6 +26,14 @@ const App: React.FC = () => {
             <Route path="/journal-entry" element={<JournalEntryPage />} />
             <Route path="/trial-balance" element={<TrialBalance />} />
             <Route path="/ledger-details" element={<LedgerDetails />} />
+            <Route path="/invoice" element={<InvoicePage />} />
+            <Route path="/supplier" element={<SupplierPage />} />
+            <Route path="/account-payable" element={<AccountsPayable />} />
+            <Route path="/account-recievable" element={<AccountsReceivable />} />
+            <Route path="/fixed-assets" element={<FixedAssetPage />} />
+            <Route path="/depreciation-schedule" element={<DepreciationSchedulePage />} />
+            <Route path="/asset-disposals" element={<AssetDisposalsPage />} />
+
 
             {/* Fallback for 404 */}
             <Route path="*" element={<h2>Page Not Found</h2>} />

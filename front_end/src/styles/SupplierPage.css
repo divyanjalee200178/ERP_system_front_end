@@ -1,0 +1,94 @@
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+    background: #f4f6f9;
+}
+
+.main-content {
+    flex: 1;
+    padding: 25px;
+}
+
+.top-bar {
+    margin-bottom: 20px;
+}
+
+.card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.form-grid input,
+.form-grid select {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.btn-group {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    padding: 8px 14px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn.primary {
+    background: #007bff;
+    color: white;
+}
+
+.btn.success {
+    background: #28a745;
+    color: white;
+}
+
+.btn.warning {
+    background: #ffc107;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th,
+table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+table th {
+    background-color: #f8f9fa;
+}
+
+.edit-btn {
+    background: #ffc107;
+    border: none;
+    padding: 5px 10px;
+    margin-right: 5px;
+    border-radius: 5px;
+}
+
+.delete-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
