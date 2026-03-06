@@ -1,0 +1,198 @@
+/* Main Dashboard Layout */
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f4f6f8;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.main-content {
+    flex: 1;
+    padding: 30px;
+}
+
+/* Page Header */
+.page-header h1 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+/* Reports Grid */
+.reports-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Report Card Base */
+.report-card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.report-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 25px rgba(0,0,0,0.15);
+}
+
+.report-card h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #222;
+}
+
+.report-desc {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.report-value {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+/* Card Colors */
+.balance-sheet { border-top: 4px solid #007bff; }
+.income-statement { border-top: 4px solid #28a745; }
+.cash-flow { border-top: 4px solid #fd7e14; }
+.ratios { border-top: 4px solid #6f42c1; }
+
+/* Buttons */
+.btn.view-report {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    align-self: flex-start;
+    transition: background-color 0.2s ease;
+}
+
+.btn.view-report:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .reports-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Modal Styling */
+.modal-overlay {
+    position: fixed;
+    top:0; left:0; right:0; bottom:0;
+    background: rgba(0,0,0,0.5);
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    padding-top: 50px;
+    z-index:1000;
+}
+
+.modal-content {
+    background:#fff;
+    padding: 25px 30px;
+    border-radius:12px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow:0 5px 20px rgba(0,0,0,0.3);
+    position: relative;
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: #222;
+}
+
+.btn.close-modal {
+    background:#dc3545;
+    color:white;
+    border:none;
+    padding: 8px 16px;
+    border-radius:6px;
+    cursor:pointer;
+    margin-top:20px;
+}
+
+.btn.close-modal:hover {
+    background:#a71d2a;
+}
+
+/* Table Styling for Modal Reports */
+.modal-content ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
+
+.modal-content ul li {
+    padding: 8px 10px;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.modal-content ul li:last-child {
+    border-bottom: none;
+}
+
+.modal-content strong {
+    color: #222;
+}
+
+/* Advanced colors for Cash Flow */
+.modal-content li span.inflow {
+    color: #0f9d58; /* green */
+    font-weight: 600;
+}
+
+.modal-content li span.outflow {
+    color: #d93025; /* red */
+    font-weight: 600;
+}
+
+/* Modal Text Colors */
+.modal-content {
+    color: #222; /* main text dark gray/black instead of white */
+}
+
+.modal-content h2 {
+    color: #007bff; /* heading blue */
+}
+
+.modal-content strong {
+    color: #333; /* totals / highlights */
+}
+
+.modal-content li span.inflow {
+    color: #0f9d58; /* green for inflow */
+    font-weight: 600;
+}
+
+.modal-content li span.outflow {
+    color: #d93025; /* red for outflow */
+    font-weight: 600;
+}
+
+.balance-sheet-section h2{
+    color: orange;
+}
+
+.balance-summary{
+    color: #1b2433;
+}

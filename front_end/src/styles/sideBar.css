@@ -1,0 +1,48 @@
+.top-nav {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+}
+
+.top-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.top-nav li {
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.top-nav li.active {
+    background-color: #555;
+    border-radius: 5px;
+}
+
+
+
+/* Sidebar Header */
+.sidebar-header {
+    padding: 0 16px;
+    margin-bottom: -2px; /* previously 5px; smaller value reduces space */
+}
+
+.sidebar-header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: -15px; /* removes extra default margin */
+    line-height: 1.2;
+}
+
+/* Sidebar Menu */
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-menu li:first-child {
+    margin-top: -45px; /* remove extra space above first item */
+}
+

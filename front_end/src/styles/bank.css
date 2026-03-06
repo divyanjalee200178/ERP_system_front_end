@@ -1,0 +1,295 @@
+/* src/styles/bank.css */
+
+.dashboard {
+    display: flex;
+    font-family: Arial, sans-serif;
+}
+
+.sidebar {
+    width: 220px;
+    background-color: #2e3b4e;
+    color: #fff;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.sidebar .logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.sidebar ul li.active {
+    background-color: #1b2433;
+    font-weight: bold;
+}
+
+.sidebar ul li.logout {
+    margin-top: 50px;
+    background-color: #d9534f;
+    text-align: center;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
+
+.top-bar h1 {
+    margin: 0 0 20px 0;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 2px 6px #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.btn-group {
+    margin-top: 15px;
+}
+
+.btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    margin-right: 5px;
+}
+
+/* Table buttons styling */
+table tbody tr td:last-child .btn {
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+/* Specific button colors */
+table tbody tr td:last-child .btn.primary {
+    background-color: #007bff;
+    color: blue;
+}
+table tbody tr td:last-child .btn.primary:hover {
+    background-color: #0056b3;
+}
+
+table tbody tr td:last-child .btn.secondary {
+    background-color: #6c757d;
+    color: black;
+}
+table tbody tr td:last-child .btn.secondary:hover {
+    background-color: #5a6268;
+}
+
+table tbody tr td:last-child .btn.danger {
+    background-color: #dc3545;
+    color: #000; /* black text */
+}
+table tbody tr td:last-child .btn.danger:hover {
+    background-color: #a71d2a;
+    color: #fff; /* white on hover */
+}
+
+/* Table styling */
+.table-section table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-section th, .table-section td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+/* Modal overlay */
+.modal-overlay {
+    position: fixed;
+    top:0; left:0; right:0; bottom:0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Modal styling */
+.modal {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 400px;
+    max-width: 90%;
+}
+
+/* Form styling inside modal */
+.form-grid {
+    display: grid;
+    gap: 0.8rem;
+    margin: 1rem 0;
+}
+
+.form-grid input {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;  /* White background */
+    color: #000;             /* Black text */
+}
+
+/* Modal actions (buttons) */
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+.btn.primary { background: #007bff; color:#fff; border:none; padding:0.5rem 1rem; cursor:pointer; }
+.btn.secondary { background: #6c757d; color:#fff; border:none; padding:0.5rem 1rem; cursor:pointer; }
+.btn.danger { background: #dc3545; color:#000; border:none; padding:0.5rem 1rem; cursor:pointer; }
+
+/* Form Group */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+/* Label styling */
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #000; /* black text */
+}
+
+/* Input styling */
+.form-group input {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    background-color: #ffffff;
+    color: #000;
+}
+
+/* Modal title */
+.modal h3 {
+    color: #000;
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* Table action buttons with borders */
+table tbody tr td:last-child .btn {
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;       /* Rounded corners */
+    font-weight: 600;
+    border: 2px solid;        /* Default border for all buttons */
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Primary button - Reconcile */
+table tbody tr td:last-child .btn.primary {
+    background-color: #007bff; /* Blue background */
+    color: blue;               /* Text color */
+    border-color: #0056b3;     /* Border color */
+}
+
+table tbody tr td:last-child .btn.primary:hover {
+    background-color: #0056b3;
+    border-color: #003f7f;
+}
+
+/* Secondary button - Update */
+table tbody tr td:last-child .btn.secondary {
+    background-color: #e0e0e0; /* Light gray */
+    color: green;              /* Text color */
+    border-color: #bdbdbd;     /* Border color */
+}
+
+table tbody tr td:last-child .btn.secondary:hover {
+    background-color: #bdbdbd;
+    border-color: #999;
+}
+
+/* Danger button - Delete */
+table tbody tr td:last-child .btn.danger {
+    background-color: #007bff; /* Blue background */
+    color: red;                /* Text color */
+    border-color: black;       /* Border color */
+}
+
+table tbody tr td:last-child .btn.danger:hover {
+    background-color: #a71d2a;
+    border-color: #000;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* space between buttons */
+    margin-top: 10px;
+}
+
+/* Shared button style */
+.header-actions .btn {
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+/* Add Account button */
+.header-actions .btn.primary {
+    background-color: #4caf50; /* green */
+    color: #fff;
+}
+
+.header-actions .btn.primary:hover {
+    background-color: #3e8e41;
+}
+
+/* Links styled as buttons */
+.header-actions .btn.info {
+    background-color: #007bff; /* blue */
+    color: #fff;
+}
+
+.header-actions .btn.info:hover {
+    background-color: #0056b3;
+}
+
+.nav-link{
+    border: 2px solid lightskyblue;
+}
+
+.card-item h4 {
+    color: black;
+}

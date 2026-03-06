@@ -13,6 +13,16 @@ import AccountsReceivable from "./pages/AccountsReceivable.tsx";
 import FixedAssetPage from "./pages/FixedAssetPage.tsx";
 import DepreciationSchedulePage from "./pages/DepreciationSchedulePage.tsx";
 import AssetDisposalsPage from "./pages/AssetDisposalsPage.tsx";
+import BudgetPage from "./pages/BudgetPage.tsx";
+import BudgetVsActualPage from "./pages/BudgetVsActualPage.tsx";
+import VarianceDetailsPage from "./pages/VarianceDetails.tsx";
+import UserPage from "./pages/UserPage.tsx";
+import BankReconciliationPage from "./pages/BankReconciliationPage.tsx";
+import TransactionPage from "./pages/TransactionPage.tsx";
+import FinancialReportsPage from "./pages/FinancialReportsPage.tsx";
+import IncomeSheetPage from "./pages/IncomeSheetPage.tsx";
+import CashFlowPage from "./pages/CashFlowPage.tsx";
+import FinancialRatiosPage from "./pages/FinancialRatios.tsx";
 
 const App: React.FC = () => {
     return (
@@ -33,7 +43,17 @@ const App: React.FC = () => {
             <Route path="/fixed-assets" element={<FixedAssetPage />} />
             <Route path="/depreciation-schedule" element={<DepreciationSchedulePage />} />
             <Route path="/asset-disposals" element={<AssetDisposalsPage />} />
-
+            <Route path="/budget" element={<BudgetPage />} />
+            <Route path="/Variance-details" element={<VarianceDetailsPage />} />
+            <Route path="/budgetVsActualPage" element={<BudgetVsActualPage />} />
+            <Route path="/user" element={<UserPage />} />
+            {/*<Route path="/user-roles" element={<RolesPage />} />*/}
+            <Route path="/bank-reconciliation" element={<BankReconciliationPage />} />
+            <Route path="/transaction" element={<TransactionPage />} />
+            <Route path="/financial" element={<FinancialReportsPage />} />
+            <Route path="/income" element={<IncomeSheetPage />} />
+            <Route path="/cash" element={<CashFlowPage />} />
+            <Route path="/FinancialRatio" element={<FinancialRatiosPage />} />
 
             {/* Fallback for 404 */}
             <Route path="*" element={<h2>Page Not Found</h2>} />

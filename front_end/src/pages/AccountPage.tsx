@@ -1,6 +1,6 @@
 // src/pages/AccountPage.tsx
 import React, { useEffect, useState } from "react";
-import Sidebar from "../components/Sidebar"; // ✅ Replace sidebar
+import Sidebar from "../components/Sidebar";
 import "../styles/account.css";
 import { PieChart } from "react-minimal-pie-chart";
 
@@ -12,6 +12,7 @@ interface Account {
     subType: string;
     balance: number;
     status: string;
+    bankName?: string; // ✅ Added bankName
 }
 
 interface PieData {
@@ -31,6 +32,7 @@ const AccountPage: React.FC = () => {
         subType: "",
         balance: 0,
         status: "Active",
+        bankName: "",
     });
     const [accountId, setAccountId] = useState<number | null>(null);
     const [activeTopNav, setActiveTopNav] = useState<string>("Accounts");
@@ -95,10 +97,10 @@ const AccountPage: React.FC = () => {
             subType: "",
             balance: 0,
             status: "Active",
+            bankName: "",
         });
     };
 
-    // Group accounts by Type > SubType
     const getGroupedAccounts = () => {
         const grouped: Record<string, Record<string, Account[]>> = {};
         accounts.forEach((acc) => {
@@ -120,7 +122,6 @@ const AccountPage: React.FC = () => {
         Expense: "#9c27b0",
     };
 
-    // Account summary for balances
     const getAccountSummary = () => {
         const summary: Record<string, { count: number; total: number }> = {};
         let grandTotal = 0;
@@ -148,12 +149,9 @@ const AccountPage: React.FC = () => {
 
     return (
         <div className="dashboard">
-            {/* ✅ REUSABLE SIDEBAR */}
             <Sidebar />
-
-            {/* MAIN CONTENT */}
             <main className="main-content">
-                {/* TOP NAVBAR */}
+                {/* Top Navbar */}
                 <div className="top-navbar">
                     {topNavItems.map((item) => (
                         <button
@@ -164,11 +162,9 @@ const AccountPage: React.FC = () => {
                             {item}
                         </button>
                     ))}
-
                     <button className="top-btn">Add Account</button>
                     <button className="top-btn">Export</button>
                     <button className="top-btn">Load Sample</button>
-
                     <input className="top-input" type="text" placeholder="Search accounts..." />
                     <select className="top-select">
                         <option>All Types</option>
@@ -185,7 +181,7 @@ const AccountPage: React.FC = () => {
                     </select>
                 </div>
 
-                {/* ACCOUNTS LIST */}
+                {/* Accounts List Form */}
                 {activeTopNav === "Accounts" && (
                     <div>
                         <div className="card">
@@ -216,6 +212,11 @@ const AccountPage: React.FC = () => {
                                 value={form.balance}
                                 onChange={(e) => setForm({ ...form, balance: Number(e.target.value) })}
                             />
+                            <input
+                                placeholder="Bank Name"
+                                value={form.bankName}
+                                onChange={(e) => setForm({ ...form, bankName: e.target.value })}
+                            />
                             <select
                                 value={form.status}
                                 onChange={(e) => setForm({ ...form, status: e.target.value })}
@@ -239,6 +240,7 @@ const AccountPage: React.FC = () => {
                                     <th>Type</th>
                                     <th>Sub-Type</th>
                                     <th>Balance</th>
+                                    <th>Bank Name</th> {/* ✅ Added */}
                                     <th>Status</th>
                                     <th>Actions</th>
                                 </tr>
@@ -251,6 +253,7 @@ const AccountPage: React.FC = () => {
                                         <td>{acc.type}</td>
                                         <td>{acc.subType}</td>
                                         <td>${acc.balance.toLocaleString()}</td>
+                                        <td>{acc.bankName || "-"}</td> {/* Display */}
                                         <td>{acc.status}</td>
                                         <td>
                                             <button onClick={() => editAccount(acc)}>Edit</button>
@@ -264,7 +267,7 @@ const AccountPage: React.FC = () => {
                     </div>
                 )}
 
-                {/* CHART OF ACCOUNTS */}
+                {/* Chart of Accounts */}
                 {activeTopNav === "Chart of Accounts" && (
                     <div style={{ padding: "10px" }}>
                         {Object.keys(groupedAccounts).map((type) => (
@@ -297,6 +300,7 @@ const AccountPage: React.FC = () => {
                                             >
                                                 <span>{acc.accountCode}</span>
                                                 <span>{acc.name}</span>
+                                                <span>{acc.bankName || "-"}</span>
                                                 <span>${acc.balance.toLocaleString()}</span>
                                             </div>
                                         ))}
@@ -307,7 +311,7 @@ const AccountPage: React.FC = () => {
                     </div>
                 )}
 
-                {/* ACCOUNT BALANCES WITH PIE CHART */}
+                {/* Account Balances with Pie Chart */}
                 {activeTopNav === "Account Balances" && (
                     <div className="card" style={{ marginTop: "20px" }}>
                         <h3>Account Balances</h3>
@@ -331,7 +335,6 @@ const AccountPage: React.FC = () => {
                             ))}
                             </tbody>
                         </table>
-
                         <div style={{ maxWidth: "400px", margin: "30px auto" }}>
                             <PieChart<PieData>
                                 data={pieData}
