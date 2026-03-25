@@ -85,17 +85,59 @@ const JournalEntryPage: React.FC = () => {
         }));
     };
 
+    // const handleSave = async (): Promise<void> => {
+    //     if (!selectedJournal.description) {
+    //         alert("Enter description");
+    //         return;
+    //     }
+    //     if (!selectedJournal.status) {
+    //         alert("Select status");
+    //         return;
+    //     }
+    //     if (selectedJournal.accountId === 0) {
+    //         alert("Select Account");
+    //         return;
+    //     }
+    //
+    //     try {
+    //         if (selectedJournal.id && selectedJournal.id !== 0) {
+    //             await updateJournal(selectedJournal);
+    //         } else {
+    //             await saveJournal(selectedJournal);
+    //         }
+    //
+    //         handleClear();
+    //         await reloadData();
+    //     } catch (error: unknown) {
+    //         if (isErrorWithMessage(error)) {
+    //             console.error("Save failed:", error.message);
+    //         } else {
+    //             console.error("Save failed:", error);
+    //         }
+    //         alert("An error occurred while saving the journal entry.");
+    //     }
+    // };
+
     const handleSave = async (): Promise<void> => {
+
         if (!selectedJournal.description) {
             alert("Enter description");
             return;
         }
+
         if (!selectedJournal.status) {
             alert("Select status");
             return;
         }
+
         if (selectedJournal.accountId === 0) {
             alert("Select Account");
+            return;
+        }
+
+        // ===== Accounting Rule =====
+        if (selectedJournal.debitTotal !== selectedJournal.creditTotal) {
+            alert("Debit Total and Credit Total must be equal!");
             return;
         }
 
@@ -108,6 +150,7 @@ const JournalEntryPage: React.FC = () => {
 
             handleClear();
             await reloadData();
+
         } catch (error: unknown) {
             if (isErrorWithMessage(error)) {
                 console.error("Save failed:", error.message);

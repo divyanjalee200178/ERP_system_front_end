@@ -147,10 +147,42 @@ const AccountPage: React.FC = () => {
         color: typeColors[row.type],
     }));
 
+    const exportAccounts = () => {
+        if (accounts.length === 0) return alert("No accounts to export.");
+
+        // Prepare CSV header
+        const headers = ["Account Code", "Name", "Type", "Sub-Type", "Balance", "Bank Name", "Status"];
+        const rows = accounts.map(acc => [
+            acc.accountCode,
+            acc.name,
+            acc.type,
+            acc.subType,
+            acc.balance,
+            acc.bankName || "",
+            acc.status,
+        ]);
+
+        // Convert to CSV string
+        const csvContent =
+            "data:text/csv;charset=utf-8," +
+            [headers, ...rows].map(e => e.map(cell => `"${cell}"`).join(",")).join("\n");
+
+        // Create download link and click
+        const encodedUri = encodeURI(csvContent);
+        const link = document.createElement("a");
+        link.setAttribute("href", encodedUri);
+        link.setAttribute("download", "accounts_export.csv");
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
+
     return (
         <div className="dashboard">
             <Sidebar />
             <main className="main-content">
+
+                <h2 style={{margin: "40px 0", color: "#333", fontSize: "30px" }}>Account Page</h2>
                 {/* Top Navbar */}
                 <div className="top-navbar">
                     {topNavItems.map((item) => (
@@ -163,9 +195,8 @@ const AccountPage: React.FC = () => {
                         </button>
                     ))}
                     <button className="top-btn">Add Account</button>
-                    <button className="top-btn">Export</button>
-                    <button className="top-btn">Load Sample</button>
-                    <input className="top-input" type="text" placeholder="Search accounts..." />
+                    <button className="top-btn" onClick={exportAccounts}>Export</button>
+                    {/*<button className="top-btn">Load Sample</button>*/}
                     <select className="top-select">
                         <option>All Types</option>
                         <option>Asset</option>
@@ -189,37 +220,37 @@ const AccountPage: React.FC = () => {
                             <input
                                 placeholder="Code"
                                 value={form.accountCode}
-                                onChange={(e) => setForm({ ...form, accountCode: e.target.value })}
+                                onChange={(e) => setForm({...form, accountCode: e.target.value})}
                             />
                             <input
                                 placeholder="Name"
                                 value={form.name}
-                                onChange={(e) => setForm({ ...form, name: e.target.value })}
+                                onChange={(e) => setForm({...form, name: e.target.value})}
                             />
                             <input
                                 placeholder="Type"
                                 value={form.type}
-                                onChange={(e) => setForm({ ...form, type: e.target.value })}
+                                onChange={(e) => setForm({...form, type: e.target.value})}
                             />
                             <input
                                 placeholder="Sub-Type"
                                 value={form.subType}
-                                onChange={(e) => setForm({ ...form, subType: e.target.value })}
+                                onChange={(e) => setForm({...form, subType: e.target.value})}
                             />
                             <input
                                 placeholder="Balance"
                                 type="number"
                                 value={form.balance}
-                                onChange={(e) => setForm({ ...form, balance: Number(e.target.value) })}
+                                onChange={(e) => setForm({...form, balance: Number(e.target.value)})}
                             />
                             <input
                                 placeholder="Bank Name"
                                 value={form.bankName}
-                                onChange={(e) => setForm({ ...form, bankName: e.target.value })}
+                                onChange={(e) => setForm({...form, bankName: e.target.value})}
                             />
                             <select
                                 value={form.status}
-                                onChange={(e) => setForm({ ...form, status: e.target.value })}
+                                onChange={(e) => setForm({...form, status: e.target.value})}
                             >
                                 <option>Active</option>
                                 <option>Inactive</option>
@@ -240,7 +271,8 @@ const AccountPage: React.FC = () => {
                                     <th>Type</th>
                                     <th>Sub-Type</th>
                                     <th>Balance</th>
-                                    <th>Bank Name</th> {/* ✅ Added */}
+                                    <th>Bank Name</th>
+                                    {/* ✅ Added */}
                                     <th>Status</th>
                                     <th>Actions</th>
                                 </tr>
@@ -253,7 +285,8 @@ const AccountPage: React.FC = () => {
                                         <td>{acc.type}</td>
                                         <td>{acc.subType}</td>
                                         <td>${acc.balance.toLocaleString()}</td>
-                                        <td>{acc.bankName || "-"}</td> {/* Display */}
+                                        <td>{acc.bankName || "-"}</td>
+                                        {/* Display */}
                                         <td>{acc.status}</td>
                                         <td>
                                             <button onClick={() => editAccount(acc)}>Edit</button>
@@ -269,7 +302,7 @@ const AccountPage: React.FC = () => {
 
                 {/* Chart of Accounts */}
                 {activeTopNav === "Chart of Accounts" && (
-                    <div style={{ padding: "10px" }}>
+                    <div style={{padding: "10px"}}>
                         {Object.keys(groupedAccounts).map((type) => (
                             <div
                                 key={type}
@@ -281,11 +314,11 @@ const AccountPage: React.FC = () => {
                                     boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
                                 }}
                             >
-                                <h3 style={{ color: typeColors[type] || "#000" }}>{type} Accounts</h3>
+                                <h3 style={{color: typeColors[type] || "#000"}}>{type} Accounts</h3>
                                 {Object.keys(groupedAccounts[type]).map((subType) => (
-                                    <div key={subType} style={{ marginLeft: "20px", marginBottom: "15px" }}>
+                                    <div key={subType} style={{marginLeft: "20px", marginBottom: "15px"}}>
                                         {subType !== "Main" && (
-                                            <h4 style={{ color: "#333", fontWeight: "500" }}>{subType}</h4>
+                                            <h4 style={{color: "#333", fontWeight: "500"}}>{subType}</h4>
                                         )}
                                         {groupedAccounts[type][subType].map((acc) => (
                                             <div
@@ -313,7 +346,7 @@ const AccountPage: React.FC = () => {
 
                 {/* Account Balances with Pie Chart */}
                 {activeTopNav === "Account Balances" && (
-                    <div className="card" style={{ marginTop: "20px" }}>
+                    <div className="card" style={{marginTop: "20px"}}>
                         <h3>Account Balances</h3>
                         <table>
                             <thead>
@@ -335,11 +368,11 @@ const AccountPage: React.FC = () => {
                             ))}
                             </tbody>
                         </table>
-                        <div style={{ maxWidth: "400px", margin: "30px auto" }}>
+                        <div style={{maxWidth: "400px", margin: "30px auto"}}>
                             <PieChart<PieData>
                                 data={pieData}
-                                label={({ dataEntry }) => `${dataEntry.title} ${dataEntry.value}%`}
-                                labelStyle={{ fontSize: "5px", fontFamily: "sans-serif" }}
+                                label={({dataEntry}) => `${dataEntry.title} ${dataEntry.value}%`}
+                                labelStyle={{fontSize: "5px", fontFamily: "sans-serif"}}
                                 animate
                             />
                         </div>

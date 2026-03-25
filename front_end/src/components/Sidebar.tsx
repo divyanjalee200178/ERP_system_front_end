@@ -100,7 +100,7 @@ const menuItems = [
     { path: "/dashboard", label: "Dashboard", icon: "🏠" },
     { path: "/accounts", label: "Chart of Accounts", icon: "📂" },
     { path: "/journal-entry", label: "Journal Entry", icon: "📝" },
-    { path: "/general-ledger", label: "General Ledger", icon: "📖" },
+    // { path: "/general-ledger", label: "General Ledger", icon: "📖" },
     { path: "/invoice", label: "Invoice", icon: "💵" },
     { path: "/account-payable", label: "Accounts Payable", icon: "💳" },
     { path: "/account-recievable", label: "Accounts Receivable", icon: "📬" },
