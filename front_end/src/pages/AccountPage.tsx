@@ -182,7 +182,7 @@ const AccountPage: React.FC = () => {
             <Sidebar />
             <main className="main-content">
 
-                <h2 style={{margin: "40px 0", color: "#333", fontSize: "30px" }}>Account Page</h2>
+                <h2 style={{margin: "5px 10px", color: "#333", fontSize: "30px" }}>Account Page</h2>
                 {/* Top Navbar */}
                 <div className="top-navbar">
                     {topNavItems.map((item) => (
@@ -194,7 +194,6 @@ const AccountPage: React.FC = () => {
                             {item}
                         </button>
                     ))}
-                    <button className="top-btn">Add Account</button>
                     <button className="top-btn" onClick={exportAccounts}>Export</button>
                     {/*<button className="top-btn">Load Sample</button>*/}
                     <select className="top-select">

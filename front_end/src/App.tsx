@@ -26,6 +26,7 @@ import FinancialRatiosPage from "./pages/FinancialRatios.tsx";
 import SettingsPage from "./pages/SettingsPage.tsx";
 import CompanyInformationPage from "./pages/CompanyInformationPage.tsx";
 import FinancialSetup from "./pages/FinancialSetup.tsx";
+import IntegrationsPage from "./pages/IntegrationsPage.tsx";
 
 const App: React.FC = () => {
     return (
@@ -60,6 +61,7 @@ const App: React.FC = () => {
             <Route path="/module-setup" element={<SettingsPage />} />
             <Route path="/companyInformation" element={<CompanyInformationPage />} />
             <Route path="/financial-setup" element={<FinancialSetup/>} />
+            <Route path="/integrations" element={<IntegrationsPage/>} />
 
             {/* Fallback for 404 */}
             <Route path="*" element={<h2>Page Not Found</h2>} />

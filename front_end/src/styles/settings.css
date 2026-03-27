@@ -313,3 +313,26 @@
 .delete-btn:hover {
     background: #dc2626;
 }
+
+.form-group input,
+.form-group select {
+    background-color: #ffffff;   /* white background */
+    color: #000;                 /* black text */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    width: 100%;
+    outline: none;
+}
+
+.form-group input::placeholder {
+    color: black;
+}
+
+/* focus effect */
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #4f46e5;
+    box-shadow: 0 0 5px rgba(79, 70, 229, 0.4);
+    color: black;
+}

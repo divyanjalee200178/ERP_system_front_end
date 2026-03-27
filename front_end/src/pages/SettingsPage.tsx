@@ -107,6 +107,9 @@ const SettingsPage: React.FC = () => {
                         <Link to="/module-setup" className="nav-link">General Setup</Link>
                         <Link to="/companyInformation" className="nav-link">Company Information</Link>
                         <Link to="/financial-setup" className="nav-link">Financial Setup</Link>
+                        <Link to="/integrations" className="nav-link">
+                            Integrations
+                        </Link>
                     </nav>
                 </header>
                 <div className="settings-card">
