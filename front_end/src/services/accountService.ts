@@ -13,10 +13,9 @@ export interface Account {
 }
 
 export const getAccounts = async (): Promise<Account[]> => {
-    const { data } = await axios.get<Account[]>(`${BASE_URL}/get`);
-    return data;
+    const { data } = await axios.get(`${BASE_URL}/get`);
+    return data as Account[];
 };
-
 export const saveAccount = async (account: Account) => {
     return axios.post(`${BASE_URL}/save`, account);
 };

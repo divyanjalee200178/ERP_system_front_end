@@ -97,7 +97,7 @@ import { NavLink } from "react-router-dom";
 import "../styles/sideBar.css";
 
 const menuItems = [
-    { path: "/dashboard", label: "Dashboard", icon: "🏠" },
+    { path: "/dash", label: "Dashboard", icon: "🏠" },
     { path: "/accounts", label: "Chart of Accounts", icon: "📂" },
     { path: "/journal-entry", label: "Journal Entry", icon: "📝" },
     // { path: "/general-ledger", label: "General Ledger", icon: "📖" },

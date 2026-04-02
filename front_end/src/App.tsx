@@ -27,15 +27,19 @@ import SettingsPage from "./pages/SettingsPage.tsx";
 import CompanyInformationPage from "./pages/CompanyInformationPage.tsx";
 import FinancialSetup from "./pages/FinancialSetup.tsx";
 import IntegrationsPage from "./pages/IntegrationsPage.tsx";
+import DashboardPage from "./pages/dashboard.tsx";
 
 const App: React.FC = () => {
     return (
         <Routes>
             {/* Redirect / to /accounts */}
             <Route path="/" element={<LoginPage />} />
-            <Route path="/" element={<Navigate to="/accounts" />} />
+            <Route path="/dash" element={<DashboardPage />} />
+            <Route path="/" element={<Navigate to="/dsah" />} />
 
             {/* Define your routes */}
+
+            <Route path="/user" element={<UserPage />} />
             <Route path="/accounts" element={<AccountPage />} />
             <Route path="/journal-entry" element={<JournalEntryPage />} />
             <Route path="/trial-balance" element={<TrialBalance />} />
@@ -50,7 +54,7 @@ const App: React.FC = () => {
             <Route path="/budget" element={<BudgetPage />} />
             <Route path="/Variance-details" element={<VarianceDetailsPage />} />
             <Route path="/budgetVsActualPage" element={<BudgetVsActualPage />} />
-            <Route path="/user" element={<UserPage />} />
+
             {/*<Route path="/user-roles" element={<RolesPage />} />*/}
             <Route path="/bank-reconciliation" element={<BankReconciliationPage />} />
             <Route path="/transaction" element={<TransactionPage />} />

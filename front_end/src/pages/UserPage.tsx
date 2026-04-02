@@ -97,7 +97,7 @@ const UserPage: React.FC = () => {
                     <h1>User Management</h1>
                     <nav className="page-nav">
                         <Link to="/users" className="nav-link">Users</Link>
-                        <Link to="/user-roles" className="nav-link">Roles & Permissions</Link>
+                        {/*<Link to="/user-roles" className="nav-link">Roles & Permissions</Link>*/}
                     </nav>
                 </header>
 

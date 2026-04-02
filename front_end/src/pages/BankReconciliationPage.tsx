@@ -133,7 +133,7 @@ const BankReconciliationPage: React.FC = () => {
                     <div className="header-actions">
                         <button className="btn primary" onClick={() => { setShowModal(true); setIsEditing(false); setNewAccount(emptyAccount); }}>Add Account</button>
                         <a href="/transaction" className="btn info">Transaction</a>
-                        <a href="/Variance-details" className="btn info">Variance Details</a>
+                        {/*<a href="/Variance-details" className="btn info">Variance Details</a>*/}
                     </div>
                 </header>
 
