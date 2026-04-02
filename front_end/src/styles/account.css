@@ -278,7 +278,7 @@ table tr:hover {
     border-radius: 6px;
     border: none;
     cursor: pointer;
-    background-color: #3498db; /* Blue color */
+    background-color: #3498db;
     color: white;
     transition: all 0.2s ease;
     min-width: 120px;
@@ -286,18 +286,16 @@ table tr:hover {
 }
 
 .top-btn:hover {
-    background-color: #2980b9; /* Darker blue on hover */
+    background-color: #2980b9;
     transform: translateY(-1px);
 }
 
-/* Active button style if needed */
 .top-btn.active {
-    background-color: #1f618d; /* Even darker blue for active */
+    background-color: #1f618d;
 }
 
-/* Input field */
 .top-input {
-    flex: 1; /* take remaining space */
+    flex: 1;
     min-width: 220px;
     padding: 8px 12px;
     font-size: 14px;
@@ -312,7 +310,6 @@ table tr:hover {
     box-shadow: 0 0 5px rgba(52, 152, 219, 0.4);
 }
 
-/* Select fields */
 .top-select {
     padding: 8px 12px;
     font-size: 14px;
@@ -325,7 +322,7 @@ table tr:hover {
 
 .top-select:focus {
     outline: none;
-    border-color: #3498db; /* Blue focus border */
+    border-color: #3498db;
     box-shadow: 0 0 5px rgba(52, 152, 219, 0.4);
 }
 
