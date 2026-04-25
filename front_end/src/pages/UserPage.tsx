@@ -151,8 +151,8 @@ const UserPage: React.FC = () => {
                             <select name="role" value={selectedUser.role} onChange={handleChange}>
                                 <option value="">Select Role</option>
                                 <option value="ADMIN">ADMIN</option>
-                                <option value="Teacher">Teacher</option>
-                                <option value="Student">Student</option>
+                                <option value="MANAGER">Manager</option>
+
                             </select>
                         </div>
 

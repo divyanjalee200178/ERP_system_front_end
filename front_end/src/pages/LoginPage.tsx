@@ -40,8 +40,8 @@ const LoginPage: React.FC = () => {
                 case "ADMIN":
                     navigate("/accounts");
                     break;
-                case "ROLE_TEACHER":
-                case "TEACHER":
+                case "ROLE_MANAGER":
+                case "MANAGER":
                     navigate("/teacherDash");
                     break;
                 case "ROLE_AUDITOR":
